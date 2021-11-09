@@ -1,5 +1,5 @@
 const express = require("express");
-const PurchaseModel = require("../Models/Info");
+const PurchaseModel = require("../Models/Purchase");
 
 var fs = require("fs");
 
@@ -8,6 +8,63 @@ const router = express.Router();
 router.get("/", async (req, res) =>{
 
     res.render("Home")
+});
+
+router.get("/Banhgau", async (req, res) => {
+
+    var dbo = db.db("Homepage");
+
+    var data = { PurchaseID: "001", Productname: "Banh gau", Purchaseday: "11/10/2021" };
+
+    dbo.collection("Purchase").insertOne(data, 
+        (err, result) => {
+            if (err) {
+                console.log("\n ERR insert: ", err);
+                process.exit();
+            }
+            console.log("\n Result - record added", result);
+
+            db.close();
+        }
+    )
+});
+
+router.get("/Dogfood", async (req, res) => {
+
+    var dbo = db.db("Homepage");
+
+    var data = { PurchaseID: "001", Productname: "Dog food", Purchaseday: "11/10/2021" };
+
+    dbo.collection("Purchase").insertOne(data, 
+        (err, result) => {
+            if (err) {
+                console.log("\n ERR insert: ", err);
+                process.exit();
+            }
+            console.log("\n Result - record added", result);
+
+            db.close();
+        }
+    )
+});
+
+router.get("/PS5", async (req, res) => {
+
+    var dbo = db.db("Homepage");
+
+    var data = { PurchaseID: "001", Productname: "PS5C", Purchaseday: "11/10/2021" };
+
+    dbo.collection("Purchase").insertOne(data, 
+        (err, result) => {
+            if (err) {
+                console.log("\n ERR insert: ", err);
+                process.exit();
+            }
+            console.log("\n Result - record added", result);
+
+            db.close();
+        }
+    )
 });
 /*
 router.get("/", async (req, res) => {
@@ -32,9 +89,7 @@ router.get("/",
 });
 
 
-router.get("/create", async (req, res) => {
-    res.render("purchase-create");
-});
+
 
 router.get("/view/:id", async (req, res) => {
     res.send("View " + req.params.id);

@@ -1,6 +1,6 @@
 body {
  font-family:Lato,san-serif;
- background-image:url('imgs/CentralMall.jpg');
+ background-image:url('../imgs/CentralMall.jpg');
  font-size:16px;
 
  margin-top:0px;
@@ -97,25 +97,25 @@ input {
 
 #facebook {
  width:50px; height: 50px;
- background: url(images/social.jpg) -13px -3px;
+ background: url(../imgs/social.jpg) -13px -3px;
  vertical-align:middle;
 }
 
 #twitter {
  width:50px; height: 50px;
- background: url(images/social.jpg) -77px -3px;
+ background: url(../imgs/social.jpg) -77px -3px;
  vertical-align:middle;
 }
 
 #google {
  width:50px; height: 50px;
- background: url(images/social.jpg) -141px -3px;
+ background: url(../imgs/social.jpg) -141px -3px;
  vertical-align:middle;
 }
 
 #in {
  width:50px; height: 50px;
- background: url(images/social.jpg) -205px -3px;
+ background: url(../imgs/social.jpg) -205px -3px;
  vertical-align:middle;
 }
 
@@ -136,19 +136,19 @@ input:hover {
 }
 
 #facebook:hover {
- background: url(images/social.jpg) -13px -66px;
+ background: url(../imgs/social.jpg) -13px -66px;
 }
 
 #twitter:hover {
- background: url(images/social.jpg) -77px -66px;
+ background: url(../imgs/social.jpg) -77px -66px;
 }
 
 #google:hover {
- background: url(images/social.jpg) -141px -66px;
+ background: url(../imgs/social.jpg) -141px -66px;
 }
 
 #in:hover {
- background: url(images/social.jpg) -205px -66px;
+ background: url(../imgs/social.jpg) -205px -66px;
 }
 
 p.price {

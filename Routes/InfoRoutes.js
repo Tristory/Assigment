@@ -5,13 +5,15 @@ const InfoModel = require("../Models/Info");
 const router = express.Router();
 
 
+
+
+/*
 router.get("/", async (req, res) =>{
     product = {Infoname: "Lol" , Infotext: "LOLOLOLO", imglink: ""};
 
-    res.render("About", {About : product})
+    res.render("About", {Infoname : "lol"})
 });
-
-/*
+*/ 
 router.get("/", async (req, res) => {
     const Info = await InfoModel.find({});
 
@@ -22,6 +24,7 @@ router.get("/", async (req, res) => {
     }
 });
 
+/*
 router.get("/view/:id", async (req, res) => {
     res.send("View " + req.params.id);
 });
