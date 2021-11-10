@@ -1,71 +1,81 @@
 const express = require("express");
 const PurchaseModel = require("../Models/Purchase");
 
-var fs = require("fs");
-
 const router = express.Router();
 
-router.get("/", async (req, res) =>{
 
+router.get("/", async (req, res) =>{
     res.render("Home")
 });
 
-router.get("/Banhgau", async (req, res) => {
-
-    var dbo = db.db("Homepage");
-
-    var data = { PurchaseID: "001", Productname: "Banh gau", Purchaseday: "11/10/2021" };
-
-    dbo.collection("Purchase").insertOne(data, 
-        (err, result) => {
-            if (err) {
-                console.log("\n ERR insert: ", err);
-                process.exit();
-            }
-            console.log("\n Result - record added", result);
-
-            db.close();
-        }
-    )
+router.get("/create", async (req, res) =>{
+    res.render("Create")
 });
 
-router.get("/Dogfood", async (req, res) => {
+router.post("/", async (req, res) => {
+    const purchase = new PurchaseModel(req.body);
 
-    var dbo = db.db("Homepage");
-
-    var data = { PurchaseID: "001", Productname: "Dog food", Purchaseday: "11/10/2021" };
-
-    dbo.collection("Purchase").insertOne(data, 
-        (err, result) => {
-            if (err) {
-                console.log("\n ERR insert: ", err);
-                process.exit();
-            }
-            console.log("\n Result - record added", result);
-
-            db.close();
-        }
-    )
+    try {
+        console.log(req.body);
+        await  purchase.save();
+        res.send(purchase);
+    } catch (error) {
+        res.status(500).send(error);
+    }
 });
 
-router.get("/PS5", async (req, res) => {
+/*
+var mongo = require("mongodb").MongoClient;
 
-    var dbo = db.db("Homepage");
+var assert = require("assert");
 
-    var data = { PurchaseID: "001", Productname: "PS5C", Purchaseday: "11/10/2021" };
+var url = "mongodb+srv://Tris:Tris@cluster0.ax4nu.mongodb.net/Homepage?retryWrites=true&w=majority";
 
-    dbo.collection("Purchase").insertOne(data, 
-        (err, result) => {
-            if (err) {
-                console.log("\n ERR insert: ", err);
-                process.exit();
-            }
-            console.log("\n Result - record added", result);
+var fs = require("fs");
+*/
 
-            db.close();
-        }
-    )
+/*
+router.post("/test", async (req, res) => {
+    var data = {
+        PurchaseID : "000",
+        Productname : "Test Object",
+        Purchaseday : "Lol",
+    }
+
+    const purchase = new PurchaseModel(data);
+
+    try {
+        console.log(data);
+        await  purchase.save();
+        res.send(purchase);
+    } catch (error) {
+        res.status(500).send(error);
+    }
 });
+
+/*
+router.post("/test", async (req, res) => {
+    const purchase = new PurchaseModel({ PurchaseID : "000", Productname : "Test object", Purchaseday: Date.now });
+
+    try {
+        await  purchase.save();
+        res.send(purchase);
+    } catch (error) {
+        res.status(500).send(error);
+    }
+});
+*/
+/*
+router.get("/:postid", async (req, res) => {
+    const purchase = await PurchaseModel.findById(req.params.postid);
+
+    try {
+        res.send(purchase);
+    } catch (error) {
+        res.status(500).send(error);
+    }
+});
+*/
 /*
 router.get("/", async (req, res) => {
     const purchase = await PurchaseModel.find({});
@@ -76,18 +86,6 @@ router.get("/", async (req, res) => {
         res.status(500).send(error);
     }
 });
-
-
-
-
-router.get("/", 
-    (req, res) => {
-
-        res.writeHead(200);
-        var data = fs.readFileSync("./views/home.html");
-        res.end(data.toString());
-});
-
 
 
 

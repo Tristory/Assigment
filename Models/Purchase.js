@@ -15,9 +15,9 @@ const PurchaseSchema = new mongoose.Schema({
     },
     Purchaseday : {
         type: Date,
-        default : "2021-10-20",
+        default : Date.now,
     },
 });
 
-const Purchase = mongoose.model("Purchase", PurchaseSchema,"Order");
+const Purchase = mongoose.model("Purchase", PurchaseSchema,"Purchase");
 module.exports = Purchase;

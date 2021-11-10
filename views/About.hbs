@@ -19,7 +19,7 @@
 <h1 class="head">About ATN</h1>
 
 <section>
-    <article><a href="#">
+    <article><a href="/about/618b2e37251fb4d276bb7f39">
         <h1>Product</h1>
         <p>Product of ATN</p>
         <p class="price">41 Unit</p>
@@ -31,7 +31,7 @@
         </ul>
     </a></article>
 
-    <article><a href="#">
+    <article><a href="/about/6188f418abfce22b51315c20">
         <h1>Legal</h1>
         <p>Company legal system</p>
         <p class="price">32 Unit</p>
@@ -43,7 +43,7 @@
         </ul>
     </a></article>
 
-    <article><a href="#">
+    <article><a href="/about/618b2ea2251fb4d276bb7f3a">
         <h1>History</h1>
         <p>History of ATN company</p>
         <p class="price">56 Unit</p>
@@ -58,15 +58,17 @@
 
 <section>
     <article class="panel">
-        <h2>{{Infoname}}</h2>
+        {{#each Info}}
+        <h2>{{this.Infoname}}</h2>
         <div class="article-content">
             <figure>
-                <img src={{imglink}}/>
+                <img src={{this.imglink}}/>
             </figure>
             <p>
-                {{Infotext}}
+                {{this.Infotext}}
             </p>
         </div>
+        {{/each}}
     </article>
 </section>
 

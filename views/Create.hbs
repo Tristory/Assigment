@@ -1,0 +1,49 @@
+
+<main>
+
+<Header>
+    <nav>
+        <ul class="head">
+            <li class="inline"><a href="#">Home</a></li>
+            <li class="inline"><a href="#">Order</a></li>
+            <li class="inline"><a href="#">Product</a></li>
+            <li class="inline"><a href="#">Report</a></li>
+            <li class="inline"><a href="#">Admin</a></li>
+            <li class="inline"><a href="#">Login</a></li>
+            <li class="inline"><a href="#">Signin</a></li>
+            <li class="inline"><a href="#">Contact</a></li>
+            <li class="inline"><input type="text" placeholder="Search.."></li>
+        </ul>
+    </nav>
+</Header>
+
+<h1 class="head">Add Purchase</h1>
+
+<section>
+    <div class="container">    
+        <form  action="/home" method="POST">
+            <div class="mb-3">
+                <label for="PurchaseID" class="form-label">Input Id</label>
+                <input type="text" class="form-control" id="PurchaseID" name="PurchaseID">
+            </div>
+
+            <div class="mb-3">
+                <label for="Productname" class="form-label">Product name</label>
+                <input type="text" class="form-control" id="Productname" name="Productname">
+            </div>
+
+            <div class="mb-3">
+                <label for="Purchaseday" class="form-label">Purchase day</label>
+                <input type="date" class="form-control" id="Purchaseday" name="Purchaseday">
+            </div>
+
+            <button type="submit" class="btn btn-primary">Create</button>
+        </form>
+    </div>
+</section>
+
+<footer>
+	    <p><a href="/about">About</a></p>
+</footer>
+
+</main>

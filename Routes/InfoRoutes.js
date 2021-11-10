@@ -1,4 +1,3 @@
-
 const express = require("express");
 const InfoModel = require("../Models/Info");
 
@@ -6,6 +5,23 @@ const router = express.Router();
 
 
 
+router.get("/", async (req, res) => {
+    try {
+        res.render("About");
+    } catch (error) {
+        res.status(500).send(error);
+    }
+});
+
+router.get("/:postid", async (req, res) => {
+    const Info = await InfoModel.findById(req.params.postid);
+
+    try {
+        res.render("About", { Info : Info });
+    } catch (error) {
+        res.status(500).send(error);
+    }
+});
 
 /*
 router.get("/", async (req, res) =>{
@@ -14,15 +30,6 @@ router.get("/", async (req, res) =>{
     res.render("About", {Infoname : "lol"})
 });
 */ 
-router.get("/", async (req, res) => {
-    const Info = await InfoModel.find({});
-
-    try {
-        res.render("About", { About : Info , layout: 'main'});
-    } catch (error) {
-        res.status(500).send(error);
-    }
-});
 
 /*
 router.get("/view/:id", async (req, res) => {
