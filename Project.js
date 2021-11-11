@@ -76,37 +76,14 @@ app.use(
 const homeRouter = require("./Routes/PurchaseRoutes");
 app.use("/home", homeRouter);
 
-/*const orderRouter = require("./Routes/OrderRoutes");
-app.use("/order", orderRouter);
-
-const productRouter = require("./Routes/ProductRoutes");
-app.use("/product", productRouter);
-
-const reportRouter = require("./Routes/ReportRoutes");
-app.use("/report", reportRouter);
-
-const adminRouter = require("./Routes/AdminRoutes");
-app.use("/admin", adminRouter);
-*/
-
 const aboutRouter = require("./Routes/InfoRoutes");
 app.use("/about", aboutRouter);
-/*
-const loginRouter = require("./Routes/LoginRoutes");
-app.use("/login", loginRouter);
 
-const logoutRouter = require("./Routes/LogoutRoutes");
-app.use("/logout", logoutRouter);
-
-const signinRouter = require("./Routes/SigninRoutes");
-app.use("/signin", signinRouter);
-
-const contactRouter = require("./Routes/ContactRoutes");
-app.use("/contact", contactRouter);
-
-const accountRouter = require("./Routes/AccountRoutes");
+const accountRouter = require("./routes/accountRoute");
 app.use("/account", accountRouter);
-*/
+
+const contactRouter = require("./routes/contactRoute");
+app.use("/contact", contactRouter);
 
 
 const port = process.env.PORT || 3000;
